@@ -10,7 +10,7 @@ ARG OPENSSL_FIPS_PGP_FINGERPRINT=D3577507FA40E9E2
 RUN  apk update \
   &&  cd /root  \
   &&  apk upgrade  \
-  &&  apk add --update wget gcc gzip tar libc-dev ca-certificates perl make coreutils gnupg linux-headers zlib-dev  \
+  &&  apk add --update wget gcc gzip tar libc-dev ca-certificates perl make coreutils gpg2 linux-headers zlib-dev  \
   &&  wget --quiet https://www.openssl.org/source/openssl-fips-$OPENSSL_FIPS_VER.tar.gz  \
   &&  wget --quiet https://www.openssl.org/source/openssl-fips-$OPENSSL_FIPS_VER.tar.gz.asc  \
   &&  gpg --keyserver hkp://pgp.mit.edu --recv $OPENSSL_FIPS_PGP_FINGERPRINT \
